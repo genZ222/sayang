@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>斜陽年華 · 사양연화</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0A0A0C;
+  --ink-2:#121216;
+  --moon:#E9E3D2;
+  --moon-dim:#8C877A;
+  --tungsten:#D9A441;
+  --lantern:#8C1C2B;
+  --ward:#4A5D4E;
+  --hair:rgba(233,227,210,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--moon);
+  font-family:'IBM Plex Sans KR',sans-serif;
+  font-weight:300;
+  line-height:1.85;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:100;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.045'/%3E%3C/svg%3E");
+}
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:99;
+  background:radial-gradient(ellipse at 50% 45%,transparent 30%,rgba(0,0,0,.75) 100%);
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+
+/* ── HERO ── */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden}
+.disc{
+  position:absolute;left:50%;top:38%;
+  width:min(62vw,540px);aspect-ratio:1;border-radius:50%;
+  transform:translate(-50%,-50%) translateY(var(--sink,0px));
+  background:radial-gradient(circle at 50% 42%,
+    rgba(233,227,210,.16) 0%,
+    rgba(217,164,65,.10) 38%,
+    rgba(140,28,43,.07) 62%,
+    transparent 74%);
+  filter:blur(1px);
+}
+.disc::after{
+  content:'';position:absolute;inset:26%;border-radius:50%;
+  border:1px solid rgba(233,227,210,.14);
+}
+.hero-in{position:relative;z-index:2;width:100%;text-align:center}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.42em;
+  color:var(--moon-dim);text-transform:uppercase;margin-bottom:3.2rem;
+}
+.hanja{
+  font-family:'Gowun Batang',serif;font-weight:700;
+  font-size:clamp(3.6rem,13vw,8.5rem);line-height:.94;
+  letter-spacing:.16em;text-indent:.16em;
+  color:var(--moon);
+}
+.hangul{
+  font-family:'Gowun Batang',serif;
+  font-size:clamp(1rem,2.6vw,1.35rem);letter-spacing:.72em;text-indent:.72em;
+  color:var(--tungsten);margin-top:1.6rem;
+}
+.gloss{
+  margin:3.6rem auto 0;max-width:30rem;
+  font-size:.92rem;color:var(--moon-dim);line-height:2.1;
+}
+.gloss em{font-style:normal;color:var(--moon)}
+
+/* ── SECTION FRAME ── */
+section{padding:8rem 0;position:relative}
+.label{
+  font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.34em;
+  color:var(--moon-dim);text-transform:uppercase;
+  display:flex;align-items:center;gap:1rem;margin-bottom:3rem;
+}
+.label::after{content:'';flex:1;height:1px;background:var(--hair)}
+h2{
+  font-family:'Gowun Batang',serif;font-weight:400;
+  font-size:clamp(1.5rem,4vw,2.2rem);line-height:1.55;
+  letter-spacing:-.01em;margin-bottom:1.4rem;
+}
+.lede{max-width:44rem;font-size:1rem;color:#B8B2A4;line-height:2.15}
+.lede strong{font-weight:500;color:var(--moon)}
+
+/* ── PREMISE ── */
+.beats{margin-top:4.5rem;display:grid;gap:0}
+.beat{
+  padding:2.4rem 0;border-top:1px solid var(--hair);
+  display:grid;grid-template-columns:7rem 1fr;gap:2rem;align-items:baseline;
+}
+.beat:last-child{border-bottom:1px solid var(--hair)}
+.beat dt{
+  font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.2em;
+  color:var(--moon-dim);padding-top:.4rem;
+}
+.beat dd{font-size:.98rem;color:#B8B2A4;line-height:2}
+.beat dd b{font-weight:500;color:var(--moon);font-family:'Gowun Batang',serif}
+
+/* ── CAST : 월광 ── */
+.cast{
+  margin-top:4rem;display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:1px;
+  background:var(--hair);border:1px solid var(--hair);
+}
+.figure{
+  --lit:0;
+  position:relative;background:var(--ink-2);
+  padding:3.2rem 1.8rem 2.4rem;min-height:340px;
+  display:flex;flex-direction:column;
+  border:0;text-align:left;color:inherit;font:inherit;cursor:pointer;
+  transition:background .5s ease;
+}
+.figure::before{
+  content:'';position:absolute;left:50%;top:26%;
+  width:190px;aspect-ratio:1;border-radius:50%;
+  transform:translate(-50%,-50%) scale(calc(.72 + var(--lit) * .5));
+  background:radial-gradient(circle,
+    color-mix(in srgb,var(--glow) 34%,transparent) 0%,
+    color-mix(in srgb,var(--glow) 12%,transparent) 45%,
+    transparent 70%);
+  opacity:calc(.25 + var(--lit) * .75);
+  transition:transform .7s cubic-bezier(.2,.7,.3,1),opacity .7s ease;
+  pointer-events:none;
+}
+.figure:hover,.figure:focus-visible{--lit:1;background:#16161B;outline:none}
+.figure:focus-visible{box-shadow:inset 0 0 0 1px var(--tungsten)}
+.fig-in{position:relative;z-index:2;display:flex;flex-direction:column;height:100%}
+.fig-hanja{
+  font-family:'Gowun Batang',serif;font-size:.78rem;letter-spacing:.3em;
+  color:var(--moon-dim);margin-bottom:.5rem;
+}
+.fig-name{
+  font-family:'Gowun Batang',serif;font-size:1.65rem;font-weight:700;
+  letter-spacing:.05em;line-height:1.3;
+  color:color-mix(in srgb,var(--moon) calc(58% + var(--lit) * 42%),transparent);
+  transition:color .5s ease;
+}
+.fig-role{
+  font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.13em;
+  color:var(--glow);margin-top:.7rem;opacity:.85;
+}
+.fig-line{
+  margin-top:auto;padding-top:1.8rem;
+  font-family:'Gowun Batang',serif;font-size:.9rem;line-height:1.95;
+  color:#9E9889;
+  opacity:calc(.4 + var(--lit) * .6);transition:opacity .5s ease;
+}
+.hint{
+  margin-top:1.6rem;font-family:'IBM Plex Mono',monospace;
+  font-size:.64rem;letter-spacing:.16em;color:var(--moon-dim);
+}
+
+/* ── ROUTES ── */
+.routes{margin-top:4rem;display:grid;gap:1px;background:var(--hair);border:1px solid var(--hair)}
+.route{
+  background:var(--ink-2);padding:2.6rem 2.2rem;
+  display:grid;grid-template-columns:4.5rem 1fr;gap:2rem;align-items:start;
+}
+.route-mark{
+  font-family:'Gowun Batang',serif;font-size:2.2rem;font-weight:700;
+  line-height:1;color:var(--rc);
+}
+.route h3{
+  font-family:'Gowun Batang',serif;font-weight:400;font-size:1.12rem;
+  letter-spacing:.02em;margin-bottom:.7rem;
+}
+.route p{font-size:.92rem;color:#9E9889;line-height:2}
+
+/* ── GAUGE STRIP ── */
+.gauges{
+  margin-top:4rem;display:flex;flex-wrap:wrap;gap:1px;
+  background:var(--hair);border:1px solid var(--hair);
+}
+.gauge{background:var(--ink-2);padding:1.9rem 1.7rem;flex:1 1 168px}
+.gauge-k{
+  font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.18em;
+  color:var(--moon-dim);margin-bottom:.9rem;
+}
+.gauge-v{font-family:'Gowun Batang',serif;font-size:1.05rem;line-height:1.6}
+.gauge-n{margin-top:.7rem;font-size:.8rem;color:#867F71;line-height:1.8}
+
+/* ── CLOSE ── */
+.close{text-align:center;padding:9rem 0 7rem;border-top:1px solid var(--hair)}
+.close .hanja{font-size:clamp(2rem,7vw,4rem)}
+.close p{margin-top:2.4rem;color:var(--moon-dim);font-size:.92rem;line-height:2.1}
+footer{
+  padding:2.6rem 0 3.4rem;border-top:1px solid var(--hair);
+  font-family:'IBM Plex Mono',monospace;font-size:.63rem;letter-spacing:.2em;
+  color:#5A554B;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+}
+
+@media(max-width:640px){
+  section{padding:5.5rem 0}
+  .beat{grid-template-columns:1fr;gap:.8rem}
+  .route{grid-template-columns:1fr;gap:1rem}
+  .figure{min-height:290px;padding:2.6rem 1.5rem 2rem}
+  .figure{--lit:.55}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="disc" id="disc"></div>
+  <div class="hero-in wrap">
+    <p class="eyebrow">Noir Interactive Drama</p>
+    <h1 class="hanja">斜陽年華</h1>
+    <p class="hangul">사양연화</p>
+    <p class="gloss">
+      花樣年華가 꽃 같은 시절이라면<br>
+      斜陽年華는 <em>기우는 해의 시절</em>이다.<br><br>
+      지는 것이 가장 화려한 시간.
+    </p>
+  </div>
+</header>
+
+<main>
+
+<section class="wrap">
+  <p class="label">이야기</p>
+  <h2>버림받은 여자를 구하는 이야기가 아니다.<br>조직을 함께 세운 사람이<br>조직의 역사에서 지워지는 이야기다.</h2>
+  <p class="lede">
+    중앙회 창립 초기 일곱 사람 중 하나였다. 자금 흐름과 상권 구조를 설계한 사람이었다.
+    조직 어디를 뒤져도 그녀 손이 안 닿은 곳이 없는데, <strong>그녀 이름이 적힌 문서는 한 장도 없다.</strong>
+    있던 사진에서 사람 하나가 잘려 있고, 아무도 그것을 지적하지 않는다.
+  </p>
+
+  <dl class="beats">
+    <div class="beat">
+      <dt>3년 전</dt>
+      <dd>중앙회 밑바닥에서 구르던 당신에게 지나가던 여자가 한마디를 남겼다.<br>
+        <b>“잊으셨나요? 당신의, 생명의 무게를.”</b><br>
+        걱정이었다. 그 조직에서 아무도 해준 적 없는 말이었다.</dd>
+    </div>
+    <div class="beat">
+      <dt>어제</dt>
+      <dd>서북지부장. 검은 명패에는 도롱뇽이 새겨져 있었다.
+        3년을 굴러 얻은 자리였고, 손때는 아직 묻지 않았다.</dd>
+    </div>
+    <div class="beat">
+      <dt>오늘 아침</dt>
+      <dd>하얀 봉투를 칼로 그었다. 사진 한 장과 서신 한 장이 책상으로 쏟아졌다.<br>
+        <b>금일 19시 30분. 기화월(奇華月)을 사살하라. 거부는 곧 배신.</b><br>
+        사진을 집는 순간 3년 전 그 목소리가 돌아온다.</dd>
+    </div>
+  </dl>
+</section>
+
+<section class="wrap">
+  <p class="label">인물</p>
+  <h2>달이 구름에서 나올 때만<br>얼굴이 보인다.</h2>
+
+  <!-- 초상 이미지를 넣으려면 각 .fig-in 위에 <img>를 얹으면 됩니다 -->
+  <div class="cast">
+    <button class="figure" style="--glow:#D9A441">
+      <span class="fig-in">
+        <span class="fig-hanja">奇華月</span>
+        <span class="fig-name">기화월</span>
+        <span class="fig-role">Target · 33</span>
+        <span class="fig-line">겉은 차갑고 도도하다. 속은 누구보다 사람답다.<br>커튼은 치지 않는다. 위험한 줄 알면서 그렇게 한다.</span>
+      </span>
+    </button>
+
+    <button class="figure" style="--glow:#B9B3A4">
+      <span class="fig-in">
+        <span class="fig-hanja">胡薇</span>
+        <span class="fig-name">호웨이</span>
+        <span class="fig-role">Handler · 28</span>
+        <span class="fig-line">다정한 문장 안에 칼이 하나 들어 있다.<br>상대는 나중에야 베인 것을 안다.</span>
+      </span>
+    </button>
+
+    <button class="figure" style="--glow:#8C1C2B">
+      <span class="fig-in">
+        <span class="fig-hanja">魏天娥</span>
+        <span class="fig-name">위천아</span>
+        <span class="fig-role">紅蓮敎 · 35</span>
+        <span class="fig-line">계산이 없고 물러섬도 없다.<br>“안 와도 돼. 근데 안 오면 내가 서운한 건 어쩔 수 없고.”</span>
+      </span>
+    </button>
+
+    <button class="figure" style="--glow:#4A5D4E">
+      <span class="fig-in">
+        <span class="fig-hanja">德哲</span>
+        <span class="fig-name">덕철</span>
+        <span class="fig-role">西北支部</span>
+        <span class="fig-line">시끄럽고 실없고 눈치가 없다.<br>그래서 이 바닥에서 제일 안전한 사람이다.</span>
+      </span>
+    </button>
+
+    <button class="figure" style="--glow:#4A5D4E">
+      <span class="fig-in">
+        <span class="fig-hanja">哲昊</span>
+        <span class="fig-name">철호</span>
+        <span class="fig-role">西北支部</span>
+        <span class="fig-line">조직에서 남자로 통한다. 아는 사람은 당신뿐이다.<br>숨기는 사람의 심정을 알기에 캐묻지 않는다.</span>
+      </span>
+    </button>
+
+    <button class="figure" style="--glow:#7C7668">
+      <span class="fig-in">
+        <span class="fig-hanja">曹建坤</span>
+        <span class="fig-name">조건곤</span>
+        <span class="fig-role">中央會 會主 · 61</span>
+        <span class="fig-line">버렸다기보다 잊기로 결정했다. 그 편이 편했다.<br>죽었다고 보고받았고, 확인하지 않았다.</span>
+      </span>
+    </button>
+  </div>
+  <p class="hint">인물을 짚으면 조명이 옮겨갑니다</p>
+</section>
+
+<section class="wrap">
+  <p class="label">규칙</p>
+  <h2>시계는 없다.<br>조용히 보낸 날은 손해가 아니다.</h2>
+  <p class="lede">
+    게이지는 매일 깎이지 않는다. 사건이 왔을 때만 흔들린다.
+    사흘에서 닷새에 한 번, 아침에 예고되고, 넘기면 다시 조용해진다.
+    <strong>그 사이의 아무 일 없는 날들이 이 게임의 본편이다.</strong>
+  </p>
+
+  <div class="gauges">
+    <div class="gauge">
+      <p class="gauge-k">👍 조직 신뢰</p>
+      <p class="gauge-v">조직이 당신을 보는 눈</p>
+      <p class="gauge-n">낮으면 잘린다. 높으면 불려간다.</p>
+    </div>
+    <div class="gauge">
+      <p class="gauge-k">👀 의심도</p>
+      <p class="gauge-v">숨긴 것이 새어나간 정도</p>
+      <p class="gauge-n">가장 먼저 눈치채는 사람은 늘 곁에 있다.</p>
+    </div>
+    <div class="gauge">
+      <p class="gauge-k">🫆 신분세탁</p>
+      <p class="gauge-v">서류 · 자금 · 통로</p>
+      <p class="gauge-n">셋이 다 차야 문이 열린다.</p>
+    </div>
+    <div class="gauge">
+      <p class="gauge-k">🤍 🩶 🩷 호감</p>
+      <p class="gauge-v">간부 → 친우 → 연인</p>
+      <p class="gauge-n">말로는 오르지 않는다. 잃은 것으로만 오른다.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <p class="label">갈래</p>
+  <h2>루트는 선언하지 않는다.<br>쌓인 행동이 결정한다.</h2>
+
+  <div class="routes">
+    <article class="route" style="--rc:#D9A441">
+      <p class="route-mark">信</p>
+      <div>
+        <h3>신뢰 돌파</h3>
+        <p>검문을 뚫는 것은 서류가 아니라 두 사람의 호흡이다.
+          그녀가 언제 손을 잡아야 하는지 알고 있어야 통과한다.
+          가장 어렵고 가장 조용한 길. 총이 한 발도 나가지 않는다.</p>
+      </div>
+    </article>
+    <article class="route" style="--rc:#8C1C2B">
+      <p class="route-mark">滅</p>
+      <div>
+        <h3>호웨이 제거</h3>
+        <p>3년 전 구조와 석 달 전 연회. 두 날짜를 나란히 놓는 것만으로 그녀는 끝난다.
+          다만 회주는 애인을 두 번 잃고, 이번에는 확인한다.</p>
+      </div>
+    </article>
+    <article class="route" style="--rc:#7C7668">
+      <p class="route-mark">謀</p>
+      <div>
+        <h3>호웨이 이용</h3>
+        <p>그녀도 나가고 싶다. 창련파가 자기를 소모품으로 본다는 것을 최근에 알았다.
+          가장 깨끗한 탈출이며, 배신을 두 번 해본 사람의 손을 잡는 일이다.</p>
+      </div>
+    </article>
+    <article class="route" style="--rc:#4A5D4E">
+      <p class="route-mark">隱</p>
+      <div>
+        <h3>은신 유지</h3>
+        <p>나가지 않는다. 아지트는 안전하고 당신은 매일 돌아온다.
+          계절이 바뀌고, 그녀가 커튼을 치기 시작하고, 어느 날 반말을 한다.
+          도망치지 않은 것도 선택이다.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="close wrap">
+  <p class="hanja">十九時三十分</p>
+  <p>기울기 시작한 해는 아직 지지 않았다.<br>
+    오늘 무슨 일이 일어나는지는 당신이 정한다.</p>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <span>斜陽年華 · SAYANG YEONHWA</span>
+  <span>NOIR · ORGANIZED CRIME · ROMANCE</span>
+</footer>
+
+<script>
+(function(){
+  const disc = document.getElementById('disc');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!disc || reduce) return;
+  let ticking = false;
+  function sink(){
+    const y = window.scrollY;
+    const limit = window.innerHeight;
+    const p = Math.min(y / limit, 1);
+    disc.style.setProperty('--sink', (p * limit * 0.55) + 'px');
+    disc.style.opacity = String(1 - p * 0.85);
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ requestAnimationFrame(sink); ticking = true; }
+  }, {passive:true});
+  sink();
+})();
+</script>
+</body>
+</html>
